@@ -10,7 +10,7 @@ export default function Header() {
   const { data: session, status } = useSession();        
   if (session) {
     loggedInUser = <p className="card p">Signed in as {session.user?.name}</p>
-    button = <button className="btn btn-secondary" onClick={() => signOut()} >Log out</button>;
+    button = <button className="btn btn-primary" onClick={() => signOut()} >Log out</button>;
   } else {
     button = <button className="btn btn-primary" onClick={() => signIn()}>Log in</button>;    
   }
