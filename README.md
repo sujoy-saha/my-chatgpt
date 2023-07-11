@@ -1,7 +1,7 @@
 # Build a ChatGPT application with Next.js, NextAuth.js, TypeScript, Okta and Azure OpenAI Service
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-It's using Okta as a login provider using Typescript and NextAuth.js. The solution is utilizing the Vercel AI SDK for the client components and invoking the Azure OpenAI service for the server components.   
+It's using Okta as a login provider using Typescript and NextAuth.js. The solution is utilizing Vercel AI SDK for the client components and invoking the Azure OpenAI service for the server components.   
 
 Please refere the following resources to understand more details about the different components of this project. 
 
