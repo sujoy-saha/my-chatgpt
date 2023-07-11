@@ -5,6 +5,7 @@ export const authOptions = {
     // Configure one or more authentication providers
     providers: [
         Okta({
+            idToken: true,
             clientId: process.env.OKTA_OAUTH2_CLIENT_ID as string,
             clientSecret: process.env.OKTA_OAUTH2_CLIENT_SECRET as string,
             issuer: process.env.OKTA_OAUTH2_ISSUER as string,
@@ -61,8 +62,9 @@ export const authOptions = {
                 return token;
             } 
             else {
-                const url = `${process.env.OKTA_DOMAIN}/v1/token`;
-                const body = `grant_type=refresh_token&client_id=${process.env.OKTA_CLIENTID}&client_secret=${process.env.OKTA_CLIENTSECRET}&refresh_token=${token.refreshToken}`;
+                console.log("invoking refresh token core!!!!");
+                const url = `${process.env.OKTA_OAUTH2_ISSUER}/v1/token`;
+                const body = `grant_type=refresh_token&client_id=${process.env.OKTA_OAUTH2_CLIENT_ID}&client_secret=${process.env.OKTA_OAUTH2_CLIENT_SECRET}&refresh_token=${token.refreshToken}`;
                 const headers = {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Accept': 'application/json'
