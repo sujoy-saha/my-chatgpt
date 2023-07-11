@@ -16,7 +16,7 @@ Please refere the following resources to understand more details about the diffe
 Clone the repository:
 
 ```bash
-git clone https://github.com/sujoy-saha//my-chatgpt.git
+git clone https://github.com/sujoy-saha/my-chatgpt.git
 cd my-chatgpt
 ```
 
