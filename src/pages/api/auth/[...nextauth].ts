@@ -37,6 +37,13 @@ export const authOptions = {
         Google({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+            authorization: {
+                params: {
+                  prompt: "consent",
+                  access_type: "offline",
+                  response_type: "code"
+                }
+            }
         }),
         Twitter({
             clientId: process.env.TWITTER_CLIENT_ID as string,
@@ -53,15 +60,10 @@ export const authOptions = {
         
         async signIn({ user, account, profile, email, credentials }: any ) {          
             const isAllowedToSignIn = true
-            if (isAllowedToSignIn) {
-                return true;
-            } 
-            else {
-              // Return false to display a default error message
-              return false;
-              // Or you can return a URL to redirect to:
-              // return '/unauthorized'
-            }
+            if (account.provider === "google") {
+                return profile.email_verified && profile.email.endsWith("@gmail.com");
+            }            
+            return isAllowedToSignIn;
         },
         async redirect({ url, baseUrl }: any) {
             // Allows relative callback URLs
