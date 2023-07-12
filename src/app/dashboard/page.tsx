@@ -1,14 +1,9 @@
-'use client'
 import Head from 'next/head'
-import { useSession } from "next-auth/react"
 import Header from '../../components/Header'
+import DashboardComp from "../../components/Dashboard"
 import Footer from '../../components/Footer'
-import Chat from '../../components/Chat'
-import Unauthorized from '../../components/Unauthorized'
 
-export default function Dashboard() {
-  const { data: session } = useSession(); 
-  var content = session ? <Chat></Chat> : <Unauthorized></Unauthorized>
+export default function Dashboard() {  
   return (
     <div className="container">
       <Head>
@@ -19,8 +14,8 @@ export default function Dashboard() {
         <div className="col-lg-12">
           <Header></Header>
         </div>
-      </div>
-      {content}
+      </div>      
+      <DashboardComp></DashboardComp>   
       <Footer></Footer>
     </div>
   )
