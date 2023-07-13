@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Me from "../../components/Me"
 import Footer from '../../components/Footer'
 
-export default function Dashboard() {  
+export default function MyPage() {  
   return (
     <div className="container">
       <Head>

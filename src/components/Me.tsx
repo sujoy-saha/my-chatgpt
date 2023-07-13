@@ -3,7 +3,7 @@ import styles from '../styles/page.module.css'
 import { useSession } from "next-auth/react"
 import Unauthorized from './Unauthorized'
 
-export default function DashboardComp() {
+export default function MeComp() {
   // get the session object
   const { data: session, status } = useSession(); 
   if (status === "loading") {
