@@ -7,12 +7,15 @@ import Unauthorized from './Unauthorized'
 export default function DashboardComp() {
   // get the session object
   const { data: session, status } = useSession(); 
-  var content = session ? <Chat></Chat> : <Unauthorized></Unauthorized>   
+  if (status === "loading") { 
+    return <div>Loading...</div>
+  }         
+  var content = session ? <Chat></Chat> : <Unauthorized></Unauthorized>
   return (
     <main>
       <h1 className={styles.description}>
           Azure OpenAI ChatBot
-        </h1> 
+      </h1> 
       {content}
     </main>  
   )
