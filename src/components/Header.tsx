@@ -1,15 +1,20 @@
 'use client'
+import styles from '../styles/page.module.css'
+
 import { signIn, signOut, useSession } from "next-auth/react"
 
 export default function Header() {  
   //define labbel
   let loggedInUser;
+  //define labbel
+  let loggedInUserImage;
   // define the button object
   let button;
   // get the session object
   const { data: session, status } = useSession();        
   if (session) {
-    loggedInUser = <p className="card p">Signed in as {session.user?.name}</p>
+    loggedInUser = <p className="card p">Signed in as <br /> {session.user?.email ?? session.user?.name}</p>
+    loggedInUserImage = <span style={{ backgroundImage: `url('${session.user?.image}')` }} className={styles.avatar}/> 
     button = <button className="btn btn-primary" onClick={() => signOut()} >Log out</button>;
   } else {
     button = <button className="btn btn-primary" onClick={() => signIn()}>Log in</button>;    
@@ -28,10 +33,14 @@ export default function Header() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link" href="dashboard">Chat</a>
+                  <a className="nav-link" href="dashboard">Chat</a>                  
                 </li>
-              </ul>                            
-              {loggedInUser}
+                <li className="nav-item">
+                  <a className="nav-link" href="me">Me</a>
+                </li>
+              </ul>                                        
+              {loggedInUserImage} 
+              {loggedInUser}                                        
               <form className="d-flex">                
                 {button}
               </form>

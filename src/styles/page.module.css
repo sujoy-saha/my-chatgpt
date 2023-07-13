@@ -105,6 +105,37 @@
   margin-left: 0.5rem;
 }
 
+.avatar {
+  border-radius: 2rem;
+  float: left;
+  height: 2.8rem;
+  width: 2.8rem;
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*
+.signedInText,
+.notSignedInText {
+  position: relative;
+  padding-top: 0.8rem;
+  left: 1rem;
+  right: -10rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: ;
+  display: inherit;
+  z-index: 1;
+  line-height: 1.3rem;
+}
+
+.signedInText {
+  padding-top: 0rem;
+  left: 4.6rem;
+}
+*/
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
